@@ -2,7 +2,6 @@
 
 PIO_PATH="/root/.platformio/penv/bin/pio"
 PIO_PARAM="run -s"
-PIO_CONFIG_PATH="/marlin/build_config"
 BIN_DIR="/marlin/build_bin"
 BIN_F103_DIR="stm32f103_boards"
 BIN_F407_DIR="stm32f407_boards"

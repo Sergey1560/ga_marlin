@@ -1,0 +1,25 @@
+name: GA Test workflow
+
+on: 
+  push:
+    tags:
+      - "v*.*.*_*"
+
+permissions: 
+  contents: write
+
+jobs:
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+              - name: Check repo
+                uses: actions/checkout@v3
+
+              - name: Install packages
+                run: sudo apt install -y python3 python3-venv curl
+
+              - name: Print workdir
+                run: pwd
+
+              - name: Build binary
+                run: /bin/bash build_scripts/build.sh

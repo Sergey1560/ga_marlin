@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Install Platformio"
-python3 /marlin/get-platformio.py
+python3 build_scripts/get-platformio.py
 
 
-/bin/bash /marlin/build_marlin.sh
+/bin/bash build_scripts/build_marlin.sh

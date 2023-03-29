@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PIO_PATH="/root/.platformio/penv/bin/pio"
+PIO_PATH="/home/runner/.platformio/penv/bin/pio"
 PIO_PARAM="run -s"
-BIN_DIR="/marlin/build_bin"
+BIN_DIR="build_bin"
 BIN_F103_DIR="stm32f103_boards"
 BIN_F407_DIR="stm32f407_boards"
 
@@ -27,8 +27,6 @@ do
     mkdir -p ${BIN_DIR}/${BIN_F103_DIR}/$e
 done
 
-echo "Change DIR"
-cd /marlin/Marlin_FB4S
 echo "Current DIR"
 pwd
 
@@ -38,7 +36,7 @@ for e in $F4_ENVS
 do
     echo " =>Processing $e"
     ${PIO_PATH} ${PIO_PARAM} -e $e
-    cp /marlin/Marlin_FB4S/.pio/build/$e/Robin_nano35.bin ${BIN_DIR}/${BIN_F407_DIR}/$e
+    cp ./.pio/build/$e/Robin_nano35.bin ${BIN_DIR}/${BIN_F407_DIR}/$e
     ${PIO_PATH} ${PIO_PARAM} -t clean -e $e
 done
 
@@ -47,6 +45,6 @@ for e in $F1_ENVS
 do
     echo " =>Processing $e"
     ${PIO_PATH} ${PIO_PARAM} -e $e
-    cp /marlin/Marlin_FB4S/.pio/build/$e/Robin_nano35.bin ${BIN_DIR}/${BIN_F103_DIR}/$e
+    cp ./.pio/build/$e/Robin_nano35.bin ${BIN_DIR}/${BIN_F103_DIR}/$e
     ${PIO_PATH} ${PIO_PARAM} -t clean -e $e
 done
